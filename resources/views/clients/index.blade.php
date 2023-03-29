@@ -29,7 +29,7 @@
        <th>Correo</th>
        <th>Fecha Nacimiento</th>
        <th>Género</th>
-       <th>Acciones</th>
+       <th width="150px">Acciones</th>
      </tr>
   </thead>
   <tbody>

@@ -63,7 +63,7 @@
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Celular:</strong>
-          <input type="number" value="{{ $client->celphone }}" class="form-control rounded-5" name="celphone" id="celphone">
+          <input type="text" value="{{ $client->celphone }}" class="form-control rounded-5" name="celphone" id="celphone">
         </div>
         <br>
      </div>
