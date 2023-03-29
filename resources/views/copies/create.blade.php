@@ -23,11 +23,13 @@
           <input type="number" class="form-control rounded-5" name="code" id="code" required>
         </div>
          @error('code')
+         <br>
              <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -38,12 +40,20 @@
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Código película:</strong>
-          <select class="form-select rounded-5" name="movie_id" id="movie_id">
+          <select class="form-select rounded-5" name="movie_id" id="movie_id" required>
            @foreach ($movies as $movie)
                <option value="{{ $movie->id }}">{{ $movie->code}} - {{ $movie->title }}</option>
            @endforeach
           </select>
         </div>
+        @error('movie_id')
+        <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+             </button>
+            </div>
+            @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -56,6 +66,13 @@
           <option value="Perdido">Perdido</option>
           </select>
         </div>
+         @error('state')
+        <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
+             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+             </button>
+            </div>
+            @enderror
         <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">

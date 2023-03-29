@@ -62,7 +62,7 @@
             <div class="col-xs-12 col-sm-12 col-md-8">
                 <div class="form-group">
                     <strong class="form-label">Descripción:</strong>
-                    <textarea class="form-control rounded-4" name="description" id="description" cols="0" rows="2"></textarea>
+                    <textarea class="form-control rounded-5" name="description" id="description" cols="0" rows="2"></textarea>
                 </div>
                 <br>
             </div>

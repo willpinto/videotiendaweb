@@ -23,41 +23,48 @@
           <input type="number" class="form-control rounded-5" name="document" id="document" required>
         </div>
          @error('document')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Nombres:</strong>
-          <input type="text" class="form-control rounded-5" name="names" id="names">
+          <input type="text" class="form-control rounded-5" name="names" id="names" required>
         </div>
          @error('names')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Apellidos:</strong>
           <input type="text" class="form-control rounded-5" name="surnames" id="surnames">
         </div>
+        <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Dirección:</strong>
           <input type="text" class="form-control rounded-5" name="address" id="address">
         </div>
+        <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Celular:</strong>
           <input type="number" class="form-control rounded-5" name="celphone" id="celphone">
         </div>
+        <br>
      </div>
         <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -65,17 +72,20 @@
           <input type="email" class="form-control rounded-5" name="email" id="email" required>
         </div>
          @error('email')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Fecha de nacimiento:</strong>
           <input type="date" class="form-control rounded-5" name="birth_date" id="birth_date">
         </div>
+        <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">

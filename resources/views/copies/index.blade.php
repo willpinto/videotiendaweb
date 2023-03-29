@@ -6,8 +6,7 @@
   <a class="btn btn-primary rounded-5" href="{{ route('copies.create') }}">
   <i class="fa-solid fa-plus"></i>
   Crear Nuevo</a>
-</div>
-<br>
+  <br>
  @if ($message = Session::get('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <p>{{ $message }}</p>
@@ -15,10 +14,12 @@
         </button>
     </div>
     @endif
+</div>
+
 <br>
 
 <div class="container">
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
   <thead>
      <tr>
        <th>Código</th>

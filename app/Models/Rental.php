@@ -20,14 +20,6 @@ class Rental extends Model
        'receipt_id'
     ];
 
-    public static $rules = [
-       'code'   => 'required',
-       'date'  => 'required',
-       'return_date'  => 'required',
-       'penalty'     => 'required',
-       'client_id'  => 'required'
-    ];
-
     public function Clients()
     {
         return $this->belongsTo('App\Models\Client','client_id');

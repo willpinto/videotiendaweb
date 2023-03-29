@@ -52,10 +52,13 @@ class CopyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Copy $copy)
+    public function edit($id)
     {
+        $copy = Copy::find($id);
+        $movie_id = $copy->movie_id;
         $movies = Movie::all();
-        return view('copies.edit')->with(['copy'=>$copy,'movies' =>$movies]);
+        return view('copies.edit')
+        ->with(['copy'=>$copy,'movies' =>$movies,'movie_id' =>$movie_id]);
     }
 
     /**

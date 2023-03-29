@@ -50,8 +50,9 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
+        $client = Client::find($id);
         return view('clients.edit')->with('client',$client);
     }
 

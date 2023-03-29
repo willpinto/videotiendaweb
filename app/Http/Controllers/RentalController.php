@@ -36,6 +36,15 @@ class RentalController extends Controller
      */
     public function store(Request $request, Rental $rental)
     {
+        $request->validate([
+           'code'  => 'required',
+           'date'  => 'required|date',
+           'return_date'  => 'required|date',
+           'penalty'   => 'required',
+           'client_id'   => 'required',
+           'copy_id'   => 'required',
+           'receipt_id'  => 'required'
+        ]);
         $rental->create($request->post());
         return redirect()->route('rentals.index')
         ->with('success','Alquiler creado correctamente');
@@ -52,13 +61,19 @@ class RentalController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Rental $rental)
+    public function edit($id)
     {
+        $rental = Rental::find($id);
+        $client_id = $rental->client_id;
         $clients = Client::all();
+        $receipt_id = $rental->receipt_id;
         $receipts = Receipt::all();
+        $copy_id  = $rental->copy_id;
         $copies = Copy::all();
         return view('rentals.edit')
-        ->with(['rental' => $rental,'clients' =>$clients,'receipts' =>$receipts,
+        ->with(['rental' => $rental,'client_id' => $client_id, 
+        'clients' =>$clients,'receipt_id' => $receipt_id, 
+        'receipts' =>$receipts, 'copy_id' => $copy_id,
         'copies' =>$copies]);
     }
 
@@ -67,6 +82,15 @@ class RentalController extends Controller
      */
     public function update(Request $request, Rental $rental)
     {
+        $request->validate([
+           'code'   => 'required',
+           'date'  => 'required|date',
+           'return_date'   => 'required|date',
+           'penalty'   => 'required',
+           'client_id'   => 'required',
+           'copy_id'  => 'required',
+           'receipt_id'  => 'required'
+        ]);
         $rental->update($request->all());
         return redirect()->route('rentals.index')
         ->with('success','Alquiler actualizado correctamente');
