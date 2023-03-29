@@ -1,9 +1,8 @@
-
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
-  <a class="btn btn-primary rounded-5" href="{{ route('clients.create') }}">
+  <a class="btn btn-primary" href="{{ route('genres.create') }}">
   <i class="fa-solid fa-plus"></i>
   Crear Nuevo</a>
 </div>
@@ -21,34 +20,22 @@
 <table class="table table-bordered">
   <thead>
      <tr>
-       <th>Documento</th>
-       <th>Nombres</th>
-       <th>Apellidos</th>
-       <th>Dirección</th>
-       <th>Celular</th>
-       <th>Correo</th>
-       <th>Fecha Nacimiento</th>
-       <th>Género</th>
+       <th>Código</th>
+       <th>Nombre</th>
        <th>Acciones</th>
      </tr>
   </thead>
   <tbody>
-   @foreach ($clients as $client)
+   @foreach ($genres as $genre)
        <tr>
-         <td>{{ $client->document }}</td>
-         <td>{{ $client->names }}</td>
-         <td>{{ $client->surnames }}</td>
-         <td>{{ $client->address }}</td>
-         <td>{{ $client->celphone }}</td>
-         <td>{{ $client->email }}</td>
-         <td>{{ $client->birth_date }}</td>
-         <td>{{ $client->gender }}</td>
+         <td>{{ $genre->code }}</td>
+         <td>{{ $genre->name }}</td>
          <td>
-         <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
-            <a class="btn btn-info" href="{{ route('clients.show', $client->id) }}">
-            <i class="fa-solid fa-eye"></i>     
+         <form action="{{ route('genres.destroy', $genre->id) }}" method="post">
+            <a class="btn btn-info" href="{{ route('genres.show', $genre->id) }}">
+            <i class="fa-solid fa-eye"></i>       
             </a>
-            <a class="btn btn-success" href="{{ route('clients.edit', $client->id) }}">
+            <a class="btn btn-success" href="{{ route('genres.edit', $genre->id) }}">
             <i class="fa-solid fa-pen-to-square"></i>
             </a>
            @csrf

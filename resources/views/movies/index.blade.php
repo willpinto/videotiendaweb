@@ -3,9 +3,9 @@
 
 @section('content')
 <div class="container">
-  <a class="btn btn-primary rounded-5" href="{{ route('clients.create') }}">
+  <a class="btn btn-primary rounded-5" href="{{ route('movies.create') }}">
   <i class="fa-solid fa-plus"></i>
-  Crear Nuevo</a>
+  Crear Película</a>
 </div>
 <br>
  @if ($message = Session::get('success'))
@@ -21,34 +21,30 @@
 <table class="table table-bordered">
   <thead>
      <tr>
-       <th>Documento</th>
-       <th>Nombres</th>
-       <th>Apellidos</th>
-       <th>Dirección</th>
-       <th>Celular</th>
-       <th>Correo</th>
-       <th>Fecha Nacimiento</th>
+       <th>Código</th>
+       <th>Titulo</th>
+       <th>Duración</th>
+       <th>Cantidad</th>
+       <th>Descripción</th>
        <th>Género</th>
        <th>Acciones</th>
      </tr>
   </thead>
   <tbody>
-   @foreach ($clients as $client)
+   @foreach ($movies as $movie)
        <tr>
-         <td>{{ $client->document }}</td>
-         <td>{{ $client->names }}</td>
-         <td>{{ $client->surnames }}</td>
-         <td>{{ $client->address }}</td>
-         <td>{{ $client->celphone }}</td>
-         <td>{{ $client->email }}</td>
-         <td>{{ $client->birth_date }}</td>
-         <td>{{ $client->gender }}</td>
+         <td>{{ $movie->code }}</td>
+         <td>{{ $movie->title }}</td>
+         <td>{{ $movie->duration }}</td>
+         <td>{{ $movie->quantity }}</td>
+         <td>{{ $movie->description }}</td>
+         <td>{{ $movie->Genres->name }}</td>
          <td>
-         <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
-            <a class="btn btn-info" href="{{ route('clients.show', $client->id) }}">
+         <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
+            <a class="btn btn-info" href="{{ route('movies.show', $movie->id) }}">
             <i class="fa-solid fa-eye"></i>     
             </a>
-            <a class="btn btn-success" href="{{ route('clients.edit', $client->id) }}">
+            <a class="btn btn-success" href="{{ route('movies.edit', $movie->id) }}">
             <i class="fa-solid fa-pen-to-square"></i>
             </a>
            @csrf

@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-  <a class="btn btn-primary rounded-5" href="{{ route('clients.create') }}">
+  <a class="btn btn-primary rounded-5" href="{{ route('copies.create') }}">
   <i class="fa-solid fa-plus"></i>
   Crear Nuevo</a>
 </div>
@@ -21,34 +21,26 @@
 <table class="table table-bordered">
   <thead>
      <tr>
-       <th>Documento</th>
-       <th>Nombres</th>
-       <th>Apellidos</th>
-       <th>Dirección</th>
-       <th>Celular</th>
-       <th>Correo</th>
-       <th>Fecha Nacimiento</th>
-       <th>Género</th>
+       <th>Código</th>
+       <th>Descripción</th>
+       <th>Código de la película</th>
+       <th>Estado</th>
        <th>Acciones</th>
      </tr>
   </thead>
   <tbody>
-   @foreach ($clients as $client)
+   @foreach ($copies as $copy)
        <tr>
-         <td>{{ $client->document }}</td>
-         <td>{{ $client->names }}</td>
-         <td>{{ $client->surnames }}</td>
-         <td>{{ $client->address }}</td>
-         <td>{{ $client->celphone }}</td>
-         <td>{{ $client->email }}</td>
-         <td>{{ $client->birth_date }}</td>
-         <td>{{ $client->gender }}</td>
+         <td>{{ $copy->code }}</td>
+         <td>{{ $copy->description }}</td>
+         <td>{{ $copy->Movies->code }}</td>
+         <td>{{ $copy->state }}</td>
          <td>
-         <form action="{{ route('clients.destroy', $client->id) }}" method="POST">
-            <a class="btn btn-info" href="{{ route('clients.show', $client->id) }}">
+         <form action="{{ route('copies.destroy', $copy->id) }}" method="POST">
+            <a class="btn btn-info" href="{{ route('copies.show', $copy->id) }}">
             <i class="fa-solid fa-eye"></i>     
             </a>
-            <a class="btn btn-success" href="{{ route('clients.edit', $client->id) }}">
+            <a class="btn btn-success" href="{{ route('copies.edit', $copy->id) }}">
             <i class="fa-solid fa-pen-to-square"></i>
             </a>
            @csrf
@@ -64,3 +56,4 @@
 </table>
 </div>
 @endsection
+

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->string('code');
             $table->string('title');
             $table->string('duration')->nullable();
             $table->string('quantity')->nullable();

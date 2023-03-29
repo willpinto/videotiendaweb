@@ -1,25 +1,27 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CopyController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ReceiptController;
+use App\Http\Controllers\RentalController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('clientes', ClientController::class);
+Route::resource('clients', ClientController::class)->middleware('auth');
+
+Route::resource('genres', GenreController::class)->middleware('auth');
+
+Route::resource('movies', MovieController::class)->middleware('auth');
+
+Route::resource('receipts', ReceiptController::class)->middleware('auth');
+
+Route::resource('copies', CopyController::class)->middleware('auth');
+
+Route::resource('rentals', RentalController::class)->middleware('auth');

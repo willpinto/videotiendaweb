@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -11,7 +12,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = Genre::all();
+        return view('genres.index')->with('genres',$genres);
     }
 
     /**
@@ -19,7 +21,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('genres.create');
     }
 
     /**
@@ -27,38 +29,44 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Genre::create($request->post());
+        return redirect()->route('genres.index')
+        ->with('success','Género creado correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Genre $genre)
     {
-        //
+        return view('genres.show')->with('genre',$genre);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Genre $genre)
     {
-        //
+        return view('genres.edit')->with('genre', $genre);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Genre $genre)
     {
-        //
+        $genre->update($request->all());
+        return redirect()->route('genres.index')
+        ->with('success','Género actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        return view('genres.index')
+        ->with('success','Género eliminado correctamente');
     }
 }

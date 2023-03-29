@@ -12,7 +12,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::orderBy('id','asc')->paginate(10);
+        $clients = Client::all();
         return view('clients.index')->with('clients',$clients);
     }
 
@@ -21,7 +21,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -29,38 +29,44 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Client::create($request->post());
+        return redirect()->route('clients.index')
+        ->with('success','Cliente creado corretamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Client $client)
     {
-        //
+        return view('clients.show')->with('client',$client);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Client $client)
     {
-        //
+        return view('clients.edit')->with('client',$client);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Client $client)
     {
-        //
+        $client->update($request->all());
+        return redirect()->route('clients.index')
+        ->with('success','Cliente actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('clients.index')
+        ->with('success','Cliente eliminado correctamente');
     }
 }

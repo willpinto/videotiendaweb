@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Copy;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class CopyController extends Controller
@@ -11,7 +13,8 @@ class CopyController extends Controller
      */
     public function index()
     {
-        //
+        $copies = Copy::all();
+        return view('copies.index')->with('copies',$copies);
     }
 
     /**
@@ -19,46 +22,54 @@ class CopyController extends Controller
      */
     public function create()
     {
-        //
+        $movies = Movie::all();
+        return view('copies.create')->with('movies',$movies);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Copy $copy)
     {
-        //
+        $copy->create($request->post());
+        return redirect()->route('copies.index')
+        ->with('success','Ejemplar creado correctamente');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Copy $copy)
     {
-        //
+        return view('copies.show')->with('copy',$copy);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Copy $copy)
     {
-        //
+        $movies = Movie::all();
+        return view('copies.edit')->with(['copy'=>$copy,'movies' =>$movies]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Copy $copy)
     {
-        //
+        $copy->update($request->all());
+        return redirect()->route('copies.index')
+        ->with('success','Ejemplar actualizado correctamente');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Copy $copy)
     {
-        //
+        $copy->delete();
+        return redirect()->route('copies.index')
+        ->with('success','Ejemplar eliminado correctamente');
     }
 }
