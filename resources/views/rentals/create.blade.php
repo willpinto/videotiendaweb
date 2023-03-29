@@ -1,5 +1,6 @@
-@include('home')
+@extends('layouts.app')
 
+@section('content')
 <div class="container">
 <div class="pull-right">
     <a href="{{ route('rentals.index')}}" class="btn btn-outline-primary rounded-4">
@@ -93,8 +94,8 @@
          @endforeach
           </select>
         </div>
-        </div>
         <br>
+        </div>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
      <div class="form-group">
@@ -107,3 +108,4 @@
    </div>
 </form>
 </div>
+@endsection

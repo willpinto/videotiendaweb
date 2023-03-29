@@ -21,22 +21,25 @@
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Código:</strong>
-          <input type="number" class="form-control rounded-5" name="code" id="code">
+          <input type="number" class="form-control rounded-5" value="{{ old('code') }}" name="code" id="code">
         </div>
          @error('code')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
           <strong class="form-label">Nombre:</strong>
-          <input type="text" class="form-control rounded-5" name="name" id="name">
+          <input type="text" class="form-control rounded-5" value="{{ old('name') }}" name="name" id="name">
         </div>
          @error('name')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>

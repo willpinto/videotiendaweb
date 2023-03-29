@@ -26,11 +26,13 @@
           <input type="number" class="form-control rounded-5" value="{{ $genre->code }}" name="code" id="code">
         </div>
          @error('code')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -38,7 +40,8 @@
           <input type="text" class="form-control rounded-5" value="{{ $genre->name }}" name="name" id="name">
         </div>
          @error('name')
-             <div class="alert alert-danger fade-show mt-1 mb-1">{{ $message }}
+         <br>
+             <div class="alert alert-danger alert-dismissible fade-show mt-1 mb-1">{{ $message }}
              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
              </button>
             </div>

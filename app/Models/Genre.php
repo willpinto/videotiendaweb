@@ -14,11 +14,6 @@ class Genre extends Model
         'name'
     ];
 
-    public static $rules = [
-        'code'    => 'required',
-        'name'   => 'required'
-    ];
-
     public function Movies()
     {
             return $this->hasMany('App\Models\Movie');   

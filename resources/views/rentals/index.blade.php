@@ -1,6 +1,7 @@
 
-@include('home')
+@extends('layouts.app')
 
+@section('content')
 <div class="container">
   <a class="btn btn-primary rounded-5" href="{{ route('rentals.create') }}">
   <i class="fa-solid fa-plus"></i>
@@ -62,3 +63,4 @@
    </tbody>
 </table>
 </div>
+@endsection

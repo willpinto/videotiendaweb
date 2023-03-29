@@ -141,6 +141,8 @@ return [
     'url'                  => 'El campo :attribute debe ser una URL válida.',
     'uuid'                 => 'El campo :attribute debe ser un UUID válido.',
     'attributes'           => [
+        'code'                     => 'código',
+        'genre_id'                => 'género',
         'address'                  => 'dirección',
         'age'                      => 'edad',
         'amount'                   => 'cantidad',

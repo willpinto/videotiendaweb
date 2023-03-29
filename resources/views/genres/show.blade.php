@@ -19,6 +19,8 @@
      <p class="card-text">{{ $genre->code }}</p>
      <strong class="card-title">Nombre:</strong>
      <p class="card-text">{{ $genre->name }}</p>
+     <strong class="card-title">Fecha creación:</strong>
+     <p class="card-text">{{ $genre->created_at }}</p>
   </div>
 </div>
 <br>

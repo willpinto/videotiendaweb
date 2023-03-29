@@ -1,5 +1,7 @@
 
-@include('home')
+@extends('layouts.app')
+
+@section('content')
 <div class="pull-right container">
     <a href="{{ route('rentals.index')}}" class="btn btn-outline-primary">
         <i class="fa-solid fa-arrow-rotate-left"></i>
@@ -35,4 +37,4 @@
 <i class="fa-solid fa-pen-to-square"></i>
 Editar</a>
 </div>
-
+@endsection

@@ -31,6 +31,13 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+           'code'  => 'required',
+           'title' => 'required',
+           'genre_id'  => 'required|not_in:0'
+    ],[
+        'genre_id.not_in' => 'Debe seleccionar un género válido',
+    ]);
         Movie::create($request->post());
         return redirect()->route('movies.index')
         ->with('success','Película creada correctamente');
@@ -47,10 +54,13 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Movie $movie)
+    public function edit($id)
     {
+        $movie = Movie::find($id);
+        $genre_id = $movie->genre_id;
         $genres = Genre::all();
-        return view('movies.edit')->with(['movie' => $movie,'genres' => $genres]);
+        return view('movies.edit')
+        ->with(['movie' => $movie,'genre_id' => $genre_id, 'genres' => $genres]);
     }
 
     /**
@@ -58,6 +68,13 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
+        $request->validate([
+            'code'  => 'required',
+            'title' => 'required',
+            'genre_id'  => 'required|not_in:0'
+     ],[
+         'genre_id.not_in' => 'Debe seleccionar un género válido',
+     ]);
         $movie->update($request->all());
         return redirect()->route('movies.index')
         ->with('success','Película actualizado correctamente');

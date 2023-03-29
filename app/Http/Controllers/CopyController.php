@@ -31,6 +31,11 @@ class CopyController extends Controller
      */
     public function store(Request $request, Copy $copy)
     {
+        $request->validate([
+          'code'  => 'required',
+          'movie_id'  => 'required',
+          'state'  => 'required'
+        ]);
         $copy->create($request->post());
         return redirect()->route('copies.index')
         ->with('success','Ejemplar creado correctamente');
@@ -58,6 +63,11 @@ class CopyController extends Controller
      */
     public function update(Request $request, Copy $copy)
     {
+        $request->validate([
+            'code'  => 'required',
+            'movie_id'  => 'required',
+            'state'  => 'required'
+          ]);
         $copy->update($request->all());
         return redirect()->route('copies.index')
         ->with('success','Ejemplar actualizado correctamente');

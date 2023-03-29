@@ -26,6 +26,8 @@
      <p class="card-text">{{ $movie->description }}</p>
      <strong class="card-title">Género</strong>
      <p class="card-text">{{ $movie->Genres->name }}</p>
+     <strong class="card-title">Fecha de Creación:</strong>
+     <p class="card-text">{{ $movie->created_at }}</p>
   </div>
 </div>
 <br>

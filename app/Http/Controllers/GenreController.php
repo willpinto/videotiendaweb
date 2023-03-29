@@ -29,6 +29,10 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'code' => ['required'],
+            'name' => ['required']
+        ]);
         Genre::create($request->post());
         return redirect()->route('genres.index')
         ->with('success','Género creado correctamente');
@@ -55,6 +59,10 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
+        $request->validate([
+            'code' => ['required'],
+            'name' => ['required']
+        ]);
         $genre->update($request->all());
         return redirect()->route('genres.index')
         ->with('success','Género actualizado correctamente');

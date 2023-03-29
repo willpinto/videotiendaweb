@@ -29,6 +29,11 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+           'document' => 'required',
+           'names'  =>'required',
+           'email' => ['required','email']
+        ]);
         Client::create($request->post());
         return redirect()->route('clients.index')
         ->with('success','Cliente creado corretamente');
@@ -55,6 +60,11 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
+        $request->validate([
+            'document' => 'required',
+            'names'  =>'required',
+            'email' => ['required','email']
+         ]);
         $client->update($request->all());
         return redirect()->route('clients.index')
         ->with('success','Cliente actualizado correctamente');
