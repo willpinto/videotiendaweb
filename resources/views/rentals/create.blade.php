@@ -28,6 +28,7 @@
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -40,6 +41,7 @@
              </button>
             </div>
             @enderror
+            <br>
      </div>
      <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -59,6 +61,7 @@
           <strong class="form-label">Valor:</strong>
           <input type="number" class="form-control rounded-5" name="value" id="value">
         </div>
+        <br>
      </div>
         <div class="col-xs-12 col-sm-12 col-md-8">
         <div class="form-group">
@@ -79,7 +82,7 @@
           <strong class="form-label">Documento Cliente:</strong>
           <select class="form-select rounded-5" name="client_id" id="client_id" required>
           @foreach ($clients as $client)
-          <option value="{{ $client->id }}" @if($client_id == $client->id) selected @endif>{{ $client->document }} - {{ $client->names }}</option>
+          <option value="{{ $client->id }}">{{ $client->document }} - {{ $client->names }}</option>
          @endforeach
           </select>
         </div>
@@ -97,7 +100,7 @@
           <strong class="form-label">Código Ejemplar:</strong>
           <select class="form-select rounded-5" name="copy_id" id="copy_id" required>
           @foreach ($copies as $copy)
-          <option value="{{ $copy->id }}" @if($copy_id == $copy->id) selected @endif>{{ $copy->code }}</option>
+          <option value="{{ $copy->id }}">{{ $copy->code }}</option>
          @endforeach
           </select>
         </div>
@@ -115,7 +118,7 @@
           <strong class="form-label">Código recibo:</strong>
           <select class="form-select rounded-5" name="receipt_id" id="receipt_id" required>
           @foreach ($receipts as $receipt)
-          <option value="{{ $receipt->id }}" @if($receipt_id == $receipt->id) selected @endif>{{ $receipt->code }}</option>
+          <option value="{{ $receipt->id }}">{{ $receipt->code }}</option>
          @endforeach
           </select>
         </div>
